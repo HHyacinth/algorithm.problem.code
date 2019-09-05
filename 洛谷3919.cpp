@@ -11,6 +11,8 @@ struct Seg
     int ls,rs;
     int val;
 }seg[maxn*20];
+///一共修改m次，每次修改最多加入log(n)+1个节点;
+///而 log(n)<20，所以开个20倍的空间足够了
 
 int build(int l,int r,int pos)
 {
