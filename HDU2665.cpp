@@ -67,7 +67,7 @@ void Solve()
     sort(b+1,b+n+1);
     int siz=unique(b+1,b+n+1)-(b+1);
 
-    ///离散化后，不管是建树，还是查询，都是[1,siz]而不是[1,n]
+    ///去重后，不管是建树，还是查询，都是[1,siz]而不是[1,n]
     num=0;
     rt[0]=build(1,siz,1);
     for(int i=1;i <= n;++i)
