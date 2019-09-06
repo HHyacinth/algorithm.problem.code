@@ -118,14 +118,16 @@ void Solve()
             int v=G[i].to;
             if((i&1) || col[u] == col[v])
                 continue;
+            
+            ///将属于不同强连通分量的元素加入到新图中
+            ///并更新col[v]的入度
             in[col[v]]++;
             addNewEdge(col[u],col[v]);
-            addNewEdge(col[v],col[u]);
         }
     }
-    puts("YES");
-
     BFS(t);
+    
+    puts("YES");
     for(int i=1;i <= n;++i)
         putchar(ch[col[i]]);
     printf("\n");
