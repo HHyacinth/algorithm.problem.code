@@ -17,6 +17,7 @@ void Insert(int pos,int x,int k)
             {
                 base[k][i]=x;
                 p[k][i]=pos;
+                return ;///不return也可以AC
             }
             else if(pos > p[k][i])
             {
