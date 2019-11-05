@@ -47,7 +47,7 @@ int Calc(int l,int r,int m)
 {
     if(l == r)
         return w[l];
-    if(m == 1)
+    if(m == 1)///不能返回 0
         return 1;
     
     ///相比上一个版本，此处并不需要在Calc()后加phi[m]
