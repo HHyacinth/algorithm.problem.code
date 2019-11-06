@@ -41,7 +41,7 @@ void reBuild(int l,int r)
         if(p[r][i] >= l)
             tmp[i]=base[r][i];
 
-    for(int i=60;i >= 0;--i)
+    for(int i=60;i >= 0;--i)///重构线性基
         for(int j=i-1;j >= 0;--j)
             if(tmp[i]>>j&1)
                 tmp[i] ^= tmp[j];
@@ -50,10 +50,11 @@ void reBuild(int l,int r)
         if(tmp[i])
             th.push_back(tmp[i]);
 }
-ll Kth(int l,int r,ll k)
+ll Kth(int l,int r,ll k)///求解区间[l,r]异或第k小
 {
+    reBuild(l,r);///重构[l,r]的th
     int siz=th.size();
-    if(siz != (r-l+1))
+    if(siz != (r-l+1))///判断是否存在几个数异或和为0的情况，也就是判断线性基是否为满秩
         k--;
     if(k >= (1ll<<siz))
         return -1;
@@ -82,8 +83,6 @@ void Solve()
         ll k;
         scanf("%d%d",&l,&r);
         scanf("%lld\n",&k);
-
-        reBuild(l,r);///重构[l,r]的th
 
         printf("%lld\n",Kth(l,r,k));
     }
